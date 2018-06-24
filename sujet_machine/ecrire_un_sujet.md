@@ -1,4 +1,4 @@
-# Écire un sujet machine
+# Écrire un sujet machine
 
 ## Choisir un algorithme
 
@@ -108,4 +108,6 @@ compréhension, au contraire, il devrait aider sur ce point.
 
 ## Implémentation du sujet
 
-TODO: implementer_un_sujet.md
+Maintenant, place à l'implémentation !
+
+Page de référence : [implementer_un_sujet.md](implementer_un_sujet.md)
