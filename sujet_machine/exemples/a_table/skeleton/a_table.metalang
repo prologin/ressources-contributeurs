@@ -1,0 +1,34 @@
+def array<char> read_char_line (int n)
+  def array<char> tab[n] with i do
+                                  def read char t
+                                  return t
+  end
+  skip
+  return tab
+end
+
+def array<array<char>> read_char_matrix (int x, int y)
+  def array<array<char>> tab[y] with z do
+                                         return read_char_line(x)
+  end
+  return tab
+end
+
+def (int, int) read_int_couple ()
+  def read int a
+  skip
+  def read int b
+  skip
+  return (a, b)
+end
+
+def void a_table (int n, int m, array<array<char>> salle)
+  //  Inserez votre code ici 
+end
+
+main
+  (int n, int m) = read_int_couple()
+  def array<array<char>> salle = read_char_matrix(m, n)
+  a_table(n, m, salle)
+end
+

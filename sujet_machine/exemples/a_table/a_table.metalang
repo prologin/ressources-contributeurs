@@ -1,0 +1,9 @@
+def void a_table(int n, int m, array<array<char>> salle)
+  /* Inserez votre code ici */
+end
+
+main
+  def (n, m) = read_int_couple()
+  def salle = read_char_matrix(m, n)
+  a_table(n, m, salle)
+end

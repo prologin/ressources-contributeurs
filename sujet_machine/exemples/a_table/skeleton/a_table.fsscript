@@ -1,0 +1,14 @@
+open System
+let a_table0 _n _m (_salle:char array array) =
+  (* Inserez votre code ici *)
+  ()
+
+let () =
+  let bh = ((Console.ReadLine ()).Split [|' '|] |> Array.map Int32.Parse)
+  let n = bh.[0]
+  let m = bh.[1]
+  let bi = Array.init n (fun _bj ->
+    ((Console.ReadLine ()).ToCharArray ()))
+  let salle = bi
+  a_table0 n m salle
+ 

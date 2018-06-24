@@ -1,0 +1,6 @@
+title: À table !
+difficulty: 3
+time: 2000
+mem: 10000
+samples: 00 01
+hidden: 06 r01 r02 r03 r04 r05 rz100_01 rz100_02 rz100_03 rz100_r04 rz100_05 rz100_06 rz100_07
