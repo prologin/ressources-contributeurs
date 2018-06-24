@@ -28,14 +28,14 @@ for (int lig = 0; lig < NB_LIG; lig++)
 
 Une fois l'algorithme trouvé, il faut définir clairement le but de l'exercice.
 Dans notre exemple précédent, on pourrait définir notre matrice comme étant un
-terrain où sont situé des objets de deux types : '~' et '#'. Le but serait alors
-de vérifier si pour chaque objet '~' il y a un objet '#' adjacent.
+terrain où sont situé des objets de deux types : '\*' et '#'. Le but serait alors
+de vérifier si pour chaque objet '\*' il y a un objet '#' adjacent.
 
 Par exemple :
 
 ```
 .....
-.~...
+.*...
 .#...
 .....
 ```
@@ -44,7 +44,7 @@ Le candidat doit renvoyer vrai.
 
 ```
 .....
-.~...
+.*...
 .....
 ..#..
 ```
@@ -58,7 +58,7 @@ char matrice[NB_LIG][NB_COL];
 
 for (int lig = 0; lig < NB_LIG; lig++)
     for (int col = 0; col < NB_COL; col++)
-        if (matrice[lig][col] == '~')
+        if (matrice[lig][col] == '*')
             // Vérifier les 4 côtés adjacents de la case
 ```
 
@@ -88,7 +88,7 @@ Vous prenez en argument un tableau de caractères, sa longueur et sa largeur. Il
 est composé comme suit :
 
 - `.` : case vide
-- `~` : une bière
+- `*` : une bière
 - `#` : un nain voleur de bière
 
 Votre fonction doit retourner 1 si un nain voleur de bière se trouve dans une
