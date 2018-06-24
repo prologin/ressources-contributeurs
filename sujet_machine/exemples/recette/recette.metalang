@@ -1,0 +1,10 @@
+def void recette(int n, array<int> ordre, array<int> desordre)
+  /* Inserez votre code ici */
+end
+
+main
+  def n = read_int()
+  def ordre = read_int_line(n)
+  def desordre = read_int_line(n)
+  recette(n, ordre, desordre)
+end

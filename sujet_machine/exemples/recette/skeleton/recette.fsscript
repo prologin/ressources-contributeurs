@@ -1,0 +1,11 @@
+open System
+let recette0 _n (_ordre:int array) (_desordre:int array) =
+  (* Inserez votre code ici *)
+  ()
+
+let () =
+  let n = (Console.ReadLine () |> Int32.Parse)
+  let ordre = ((Console.ReadLine ()).Split [|' '|] |> Array.map Int32.Parse)
+  let desordre = ((Console.ReadLine ()).Split [|' '|] |> Array.map Int32.Parse)
+  recette0 n ordre desordre
+ 
