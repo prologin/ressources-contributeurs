@@ -1,57 +1,64 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
 
 const int INF = 1e9;
 const int MOD = 1e8 + 7;
 
-int count_inversions(vector<int> &is, int left, int right) {
-	if (left + 1 >= right) {
-		return 0;
-	}
-	int mid = (left + right) / 2;
+int count_inversions(std::vector<int>& is, int left, int right)
+{
+    if (left + 1 >= right)
+        return 0;
 
-	int res = count_inversions(is, left, mid) + count_inversions(is, mid, right);
-	res %= MOD;
+    int mid = (left + right) / 2;
 
-	vector<int> a(is.begin() + left, is.begin() + mid); a.push_back(INF);
-	vector<int> b(is.begin() + mid, is.begin() + right); b.push_back(INF);
+    int res =
+        count_inversions(is, left, mid) + count_inversions(is, mid, right);
+    res %= MOD;
 
-	long long ind_a = 0, ind_b = 0;
-	while (left < right) {
-		if (a[ind_a] < b[ind_b]) {
-			is[left++] = a[ind_a++];
-		} else {
-            // take care of added INF;
-			res += (long long) a.size() - ind_a - 1;
-			res %= MOD;
-			is[left++] = b[ind_b++];
-		}
-	}
+    std::vector<int> a(is.begin() + left, is.begin() + mid);
+    a.push_back(INF);
+    std::vector<int> b(is.begin() + mid, is.begin() + right);
+    b.push_back(INF);
 
-	return res;
+    long long idx_a = 0, idx_b = 0;
+    while (left < right)
+    {
+        if (a[idx_a] < b[idx_b])
+            is[left++] = a[idx_a++];
+        else
+        {
+            // Take care of added INF;
+            res += (long long)a.size() - idx_a - 1;
+            res %= MOD;
+            is[left++] = b[idx_b++];
+        }
+    }
+
+    return res;
 }
 
-void solve(int n, vector<int> &should, vector<int> &is) {
-    // permute elements such that should[] would be ordered to more easily process is[]
-	vector<int> perm(n);
-	for (int i=0; i<n; i++) {
-		perm[should[i]] = i;
-	}
-	for (int i=0; i<n; i++) {
-		is[i] = perm[is[i]];
-	}
-	cout << count_inversions(is, 0, n) << endl;
-}
+int main()
+{
+    int n;
+    std::cin >> n;
+    std::vector<int> should(n), is(n);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> should[i];
+        should[i]--;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> is[i];
+        is[i]--;
+    }
 
-int main() {
-	int n;
-	cin >> n;
-	vector<int> should(n), is(n);
-	for (int i=0; i<n; i++) {
-		cin >> should[i]; should[i]--;
-	}
-	for (int i=0; i<n; i++) {
-		cin >> is[i]; is[i]--;
-	}
-	solve(n, should, is);
+    std::vector<int> perm(n);
+    for (int i = 0; i < n; i++)
+        perm[should[i]] = i;
+    for (int i = 0; i < n; i++)
+        is[i] = perm[is[i]];
+    std::cout << count_inversions(is, 0, n) << '\n';
+
+    return 0;
 }

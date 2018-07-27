@@ -21,7 +21,7 @@ void dfs(int x, int y)
     }
 }
 
-int main(void)
+int main()
 {
     std::cin >> n >> m;
     for (int r = 0; r < n; r++)
