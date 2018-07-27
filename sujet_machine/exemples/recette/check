@@ -1,0 +1,23 @@
+#!/bin/sh
+
+clear
+if g++ -g -O2 -Wall -Wextra -std=gnu++14 -static "$@" -lm ref.cpp -o ref ; then
+    for f in test/*.in; do
+        f=${f%.in}
+        printf "Test $f:\n"
+        ./ref < $f.in > .tmp.out
+        if [ -f $f.out ]; then
+            if diff -q -b .tmp.out $f.out >/dev/null; then
+                echo "PASS"
+            else
+                echo "FAIL"
+                diff -y .tmp.out $f.out
+            fi
+            printf "\n"
+        else
+            echo "No $f.out file"
+            cat .tmp.out
+        fi
+    done
+fi
+rm .tmp.out
