@@ -1,31 +1,37 @@
-#include "testlib.h"
+#include <assert.h>
+#include <iostream>
 #include <vector>
 
-using namespace std;
+const int MIN_N = 2;
+const int MAX_N = 200000;
 
-const int MAX_N = 2e5;
+int main()
+{
+    int n;
+    std::cin >> n;
+    assert(n >= MIN_N && n <= MAX_N);
 
-void check_and_read_perm(int n) {
-	vector<bool> ok(n, false);
-	for (int i = 0; i < n; i++) {
-		int a = inf.readInt(1, n, "ingredient");
-		ok[--a] = true;
-		if (i+1 < n) {
-			inf.readSpace();
-		}
-	}
-	inf.readEoln();
-	for (bool e : ok) {
-		ensure(e);
-	}
-}
+    std::vector<int> should(n), is(n);
+    std::vector<bool> seen(n + 1, false);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> should[i];
+        assert(should[i] >= 1 && should[i] <= n);
+        assert(!seen[should[i]]);
+        seen[should[i]] = true;
+    }
 
-int main(int argc, char ** argv) {
-	registerValidation(argc, argv);
+    std::fill(seen.begin(), seen.end(), false);
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> is[i];
+        assert(is[i] >= 1 && is[i] <= n);
+        assert(!seen[is[i]]);
+        seen[is[i]] = true;
+    }
 
-	int n = inf.readInt(2, MAX_N, "Size of permutation n");
-	inf.readEoln();
-	check_and_read_perm(n);
-	check_and_read_perm(n);
-	inf.readEof();
+    assert(should.size() == n);
+    assert(is.size() == n);
+
+    return 0;
 }

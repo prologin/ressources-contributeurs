@@ -1,44 +1,40 @@
-#include "testlib.h"
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <vector>
-#include <stdlib.h>
 
-using namespace std;
+int main()
+{
+    std::srand((unsigned)(std::time(0)));
 
-// argument size of permutation,
-int main(int argc, char ** argv) {
+    int n;
+    std::cin >> n;
 
-	registerGen(argc, argv, 1);
-	int n = atoi(argv[1]);
+    std::vector<int> p1(n), p2(n);
+    for (int i = 0; i < n; i++)
+    {
+        p1[i] = i + 1;
+        p2[i] = i + 1;
+    }
+    std::random_shuffle(p1.begin(), p1.end());
+    std::random_shuffle(p2.begin(), p2.end());
 
-	cout << n << endl;
-	vector<int> p1(n), p2(n);
-	for (int i=0; i<n; i++) {
-		p1[i] = i+1;
-		p2[i] = i+1;
-	}
-	for (int i=0; i<n; i++) {
-		int ind = rnd.next(i, n-1);
-		swap(p1[i], p1[ind]);
-	}
-	for (int i=0; i<n; i++) {
-		int ind = rnd.next(i, n-1);
-		swap(p2[i], p2[ind]);
-	}
-	for (int i=0; i<n; i++) {
-		cout << p1[i];
-		if (i+1 < n) {
-			cout << " ";
-		}
-	}
-	cout << endl;
-	for (int i=0; i<n; i++) {
-		cout << p2[i];
-		if (i+1 < n) {
-			cout << " ";
-		}
-	}
-	cout << endl;
+    std::cout << n << '\n';
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << p1[i];
+        if (i + 1 < n)
+            std::cout << " ";
+    }
+    std::cout << '\n';
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << p2[i];
+        if (i + 1 < n)
+            std::cout << " ";
+    }
+    std::cout << '\n';
 
-	return 0;
+    return 0;
 }
