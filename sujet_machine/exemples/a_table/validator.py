@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 n, m = map(int, input().split())
 assert(1 <= n <= 100)
 assert(1 <= m <= 100)

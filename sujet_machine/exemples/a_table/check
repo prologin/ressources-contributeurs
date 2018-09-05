@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 clear
 if g++ -g -O2 -Wall -Wextra -std=gnu++14 -static "$@" -lm ref.cpp -o ref ; then
     for f in test/*.in; do
